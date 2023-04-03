@@ -11,7 +11,7 @@ class ContenedorCanciones extends Component{
     }
     //3 que se ejecuta
     componentDidMount(){
-        fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/tracks')
+        fetch('http://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/tracks')
         .then(res => res.json())
         .then(data => this.setState({canciones: data.tracks.data}))
         .catch(err => console.log('Entra en el error'))
