@@ -14,7 +14,7 @@ class ContenedorCanciones extends Component{
         fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/tracks')
         .then(res => res.json())
         .then(data => this.setState({canciones: data.tracks.data}))
-        .catch(err => console.log('Entra en el error'))
+        .catch(err => console.log('err'))
     }
     componentWillUnmount(){
 
@@ -28,7 +28,6 @@ class ContenedorCanciones extends Component{
         console.log('Soy el render')
         return(
             <div>
-                <h1>Aqui tendremos algo de musica</h1>
                 {
                     this.state.canciones.length <= 0 ?
                     <h2>Trayendo Canciones...</h2> :

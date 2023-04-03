@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 
-
 function CardCanciones(props){
     return(
         <Link to={'/'}>

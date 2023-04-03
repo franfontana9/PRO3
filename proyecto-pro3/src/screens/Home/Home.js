@@ -8,12 +8,17 @@ import './styles.css'
   render() {
     return (
       <>
-        <h1>My App in React</h1>
-        <main className='home'>
-          <h2>Canciones</h2>
-          <ContenedorCanciones/>
-          <h2>Albums</h2>
-          <ContenedorAlbums/>
+        <main>
+          <section className='home'>
+            <article>
+              <h2>Canciones</h2>
+              <ContenedorCanciones/>
+              </article> 
+              <article> 
+              <h2>Albums</h2>
+              <ContenedorAlbums/>
+              </article> 
+          </section>
         </main>
       </>
     )

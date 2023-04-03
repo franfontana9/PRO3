@@ -8,11 +8,11 @@ function CardAlbums(props){
         <div>
             <ul>
                 <h5>{props.info.title}</h5>
-                <img src={props.info.album.cover}/>
+                <img src={props.info.cover_medium}/>
             </ul>
         </div>
         </Link>
     )
 }
 
-export default CardCanciones
+export default CardAlbums
