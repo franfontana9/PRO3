@@ -10,13 +10,18 @@ class ContenedorAlbums extends Component{
         }
     }
     //3 que se ejecuta
-    componentDidMount(){
-        fetch('')
-        .then(res => res.json())
-        .then(data => console.log(data)
-        ({
-        }))
-        .catch(err => console.log(err))
+    // componentDidMount(){
+    //     fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/album/302127')
+    //     .then(res => res.json())
+    //     .then(data => data => this.setState({
+    //         albums: data.results
+    //     }))
+    //     .catch(err => console.log(err))
+    // }
+    render(){
+        return(
+            <></>
+        )
     }
 }
 

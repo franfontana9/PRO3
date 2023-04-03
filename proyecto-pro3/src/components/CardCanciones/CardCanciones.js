@@ -4,15 +4,14 @@ import { Link } from 'react-router-dom'
 
 function CardCanciones(props){
     return(
-        <link to={'/'}>
+        <Link to={'/'}>
         <div>
-            <h1>Top Songs</h1>
             <ul>
-                <h5>{props.info.name}</h5>
-                <img src={props.info.img}/>
+                <h5>{props.info.title}</h5>
+                <img src={props.info.album.cover}/>
             </ul>
         </div>
-        </link>
+        </Link>
     )
 }
 

@@ -11,12 +11,10 @@ class ContenedorCanciones extends Component{
     }
     //3 que se ejecuta
     componentDidMount(){
-        fetch('https://rickandmortyapi.com/api/character')
+        fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/tracks')
         .then(res => res.json())
-        .then(data => this.setState({
-            canciones: data.results
-        }))
-        .catch(err => console.log(err))
+        .then(data => this.setState({canciones: data.tracks.data}))
+        .catch(err => console.log('Entra en el error'))
     }
     componentWillUnmount(){
 
@@ -34,9 +32,15 @@ class ContenedorCanciones extends Component{
                 {
                     this.state.canciones.length <= 0 ?
                     <h2>Trayendo Canciones...</h2> :
-                    this.state.canciones.map(cancion => <article>
-                        <CardCanciones info={cancion} />
-                    </article>)
+                    <>
+                        <h1>Top Songs</h1>
+                        {
+                        this.state.canciones.map(cancion => <article>
+                            <CardCanciones info={cancion} />
+                        </article>
+                        )
+                        }
+                    </>
                 }
             </div>
         )
