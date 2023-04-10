@@ -15,12 +15,13 @@ function Navbar(){
     return (
         <nav>
             <ul className="main-nav">
-            { opciones.map((elm, idx) => <li>
+            { opciones.map((elm, index) => 
+                <li key={index}>
                     <Link to={elm.path}>
                         {elm.nombre}
                     </Link>
-                </li>)
-            }
+                </li>
+            )}
             </ul>
             <ul className="user">
                 <li>
