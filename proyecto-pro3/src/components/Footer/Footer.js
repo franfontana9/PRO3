@@ -1,11 +1,14 @@
 import React from "react";
 
-function Footer(){
-    return(
-        <footer>
-        <p>Tomas Bereciartua / Francisco Fontana / Santiago Scilingo</p>
+const Footer = () => (
+    <footer>
+        <ul>
+            <li>Tomas Berciarua</li>
+            <li>Francisco Fontana</li>
+            <li>Santiago Scilingo</li>
+        </ul>
     </footer>
     )
-}
+
 
 export default Footer;
