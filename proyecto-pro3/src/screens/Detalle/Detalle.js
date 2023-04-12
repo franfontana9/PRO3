@@ -3,7 +3,7 @@ import React, { Component }  from 'react';
 class Detalle extends Component {
     constructor(props){
        super(props)
-
+          
     }
 
     componentDidMount() {

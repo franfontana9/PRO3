@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import ContenedorCanciones from '../../components/ContenedorCanciones/ContenedorCanciones';
 import ContenedorAlbums from '../../components/ContenedorAlbums/ContenedorAlbums';
+import PaginaBuscador from '../PaginaBuscador/PaginaBuscador'
 import './styles.css'
-import Buscador from '../../components/Buscador/Buscador';
 
  class Home extends Component {
   render() {
@@ -11,7 +11,7 @@ import Buscador from '../../components/Buscador/Buscador';
         <main>
           <section className='home'>
             <article>
-              <Buscador/>
+              <PaginaBuscador/>
             </article>
             <article>
               <h2>Canciones</h2>
