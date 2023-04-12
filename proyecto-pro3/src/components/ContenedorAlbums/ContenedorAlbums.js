@@ -26,7 +26,6 @@ class ContenedorAlbums extends Component{
                     this.state.albums.length <= 0 ?
                     <h2>Trayendo Albums...</h2> :
                     <>
-                        <h1>Top Albums</h1>
                         {
                         this.state.albums.map(album => 
                         <article>

@@ -41,9 +41,9 @@ class ResultadosBusqueda extends Component {
             <label>Busca lo que desees</label>
         </div>
         <div>
-            <input onChange={(event)=> this.guardarValor(event)} value={this.state.valorInput}></input>
+            {/* <input onChange={(event)=> this.guardarValor(event)} value={this.state.valorInput}></input> */}
         </div>
-        <button onClick={() => this.metodoQueEnvia()}>Envar consilta</button>
+        <button onClick={() => this.metodoQueEnvia()}>Envar consulta</button>
      </form>   
     )
   }

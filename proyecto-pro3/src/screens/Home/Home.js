@@ -10,15 +10,12 @@ import './styles.css'
       <>
         <main>
           <section className='home'>
-            <article>
-              <PaginaBuscador/>
-            </article>
-            <article>
-              <h2>Canciones</h2>
+            <article className='article'>
+              <h2 className='title'>TOP SONGS</h2>
               <ContenedorCanciones/>
               </article> 
-              <article> 
-              <h2>Albums</h2>
+              <article className='article'> 
+              <h2 className='title'>TOP ALBUMS</h2>
               <ContenedorAlbums/>
               </article> 
           </section>

@@ -32,7 +32,6 @@ class ContenedorCanciones extends Component{
                     this.state.canciones.length <= 0 ?
                     <h2>Trayendo Canciones...</h2> :
                     <>
-                        <h1>Top Songs</h1>
                         {
                         this.state.canciones.map(cancion => <article>
                             <CardCanciones info={cancion} />

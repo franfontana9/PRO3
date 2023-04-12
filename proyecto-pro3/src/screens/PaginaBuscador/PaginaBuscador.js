@@ -1,8 +1,9 @@
-import React, {component} from "react";
+import React, {Component} from "react";
 import ContenedorAlbums from "../../components/ContenedorAlbums/ContenedorAlbums";
 import ContenedorCanciones from "../../components/ContenedorCanciones/ContenedorCanciones";
+import ResultadosBusqueda from "../../components/ResultadosBusqueda/ResultadosBusqueda";
 
-class PaginaBuscador extends component{
+class PaginaBuscador extends Component{
   constructor(props){
     super(props)
     this.state = {
@@ -17,20 +18,20 @@ class PaginaBuscador extends component{
         })
       }
 
-    ComponentDidMount(){
+      componentDidMount(){
         fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart')
-        .then(response => response.json())
-        .then(data => this.setState({
-            busqueda: data.data,
-            backup: data.data
+        .then( resp => resp.json())
+        .then( data => this.setState({
+          buscador: data.data,
+          backup: data.data
         }))
-
-    }
+        .catch( err => console.log(err))
+      }
 
     render() {
         return (
           <div>
-            <PaginaBuscador
+            <ResultadosBusqueda
             actualizador={(data) => this.actualizadorDeEstado(data)}
             fuente = {this.state.backup} 
             />

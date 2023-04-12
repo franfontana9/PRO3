@@ -14,22 +14,22 @@ class CardCanciones extends Component {
     }
 
     render() {
-        console.table(this.props.info.album)
+        console.table(this.props.info.track)
         return(
             <div>
-                <Link to={'/detalle/' + this.props.info.album.id}>
-                    <img src={this.props.info.album.cover_medium} alt="tapa de disco"/>
+<               Link to={'/detalle/' + (this.props.info.id)}>
+                    <img src={this.props.info.cover} alt="tapa de cancion"/>
                 </Link>
                 <div>
                     <h3>{this.props.info.title}</h3>
                     <div>
-                    <BotonFavoritos id={this.props.info.id} categoria={CATEGORIAS.album}/>
+                    <BotonFavoritos id={this.props.info.id} categoria={CATEGORIAS.cancion}/>
                     </div>
                     <div>
                         <h4>Desripcion</h4>
                         <button onClick={() => {this.setState({descripcionVisible:!this.state.descripcionVisible})}}>{this.state.descripcionVisible? '-': '+'}</button>   
                         {this.state.descripcionVisible && 
-                            <p>detalle </p>
+                            <p>hola, aca va un poco de info </p>
                         }
                     </div>
                 </div>

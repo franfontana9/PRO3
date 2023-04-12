@@ -9,23 +9,25 @@ class Favoritos extends Component {
             favoritos: []
         })
     }
-
     componentDidMount(){
         let storage = localStorage.getItem('favoritos')
-        if (storage!== null){
+        if(storage !== null){
             let storageAArray = JSON.parse(storage)
             Promise.all(
-                storageAArray.map(id=>{
-                    return fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart${id}`)
-                    .then(res=> res.json())
-                    .then(data=> data)
-                }
+                storageAArray.map(id => {
+                    return(
+                        fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/${id}`)
+                        .then(resp => resp.json())
+                        .then(data => data)
                     )
+                })
             )
-            .then(data=> this.setState({
-                favoritos:data
+            .then(data => this.setState({
+                favoritos: data
             }))
-            .catch(err=> console.log(err))
+            .catch(err => console.log(err))
+
+
         }
     }
 
