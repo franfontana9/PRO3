@@ -30,7 +30,7 @@ class ContenedorCanciones extends Component{
             <div>
                 {
                     this.state.canciones.length <= 0 ?
-                    <h2>Trayendo Canciones...</h2> :
+                    <img className="notFoundImg" src="../../img/loader.gif"></img> :
                     <>
                         {
                         this.state.canciones.map(cancion => <article>

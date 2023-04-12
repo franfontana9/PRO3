@@ -24,7 +24,7 @@ class ContenedorAlbums extends Component{
             <div>
                 {
                     this.state.albums.length <= 0 ?
-                    <h2>Trayendo Albums...</h2> :
+                    <img className="notFoundImg" src="../../img/loader.gif"></img> :
                     <>
                         {
                         this.state.albums.map(album => 

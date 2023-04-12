@@ -1,9 +1,12 @@
-import React, { Component } from 'react'
+import React from "react";
 
-export default class NotFound extends Component {
-  render() {
-    return (
-      <h1>404 NotFound</h1>
+function NotFound(props){
+
+    return(
+        <div className="notFound">
+            <img className="notFoundImg" src="../../img/404notfound.jpg"></img>
+        </div>
     )
-  }
 }
+
+export default NotFound;

@@ -18,7 +18,7 @@ class CardCanciones extends Component {
         return(
             <div>
 <               Link to={'/detalle/' + (this.props.info.id)}>
-                    <img src={this.props.info.cover} alt="tapa de cancion"/>
+                <img src={this.props.info.cover_medium} alt="tapa de cancion"/>
                 </Link>
                 <div>
                     <h3>{this.props.info.title}</h3>
