@@ -29,7 +29,11 @@ class CardCanciones extends Component {
                         <h4>Desripcion</h4>
                         <button onClick={() => {this.setState({descripcionVisible:!this.state.descripcionVisible})}}>{this.state.descripcionVisible? '-': '+'}</button>   
                         {this.state.descripcionVisible && 
-                            <p>hola, aca va un poco de info </p>
+                            <div>
+                            <p>Artista: {this.props.info.artist.name}</p>
+                            <p>Duracion: {this.props.info.duration} seg</p>
+                            <p>Ranking: {this.props.info.rank}</p>
+                            </div>
                         }
                     </div>
                 </div>
