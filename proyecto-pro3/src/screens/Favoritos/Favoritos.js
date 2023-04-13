@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import ContenedorAlbums from "../../components/ContenedorAlbums/ContenedorAlbums";
-import ContenedorCanciones from "../../components/ContenedorCanciones/ContenedorCanciones";
+import CardAlbums from "../../components/CardAlbums/CardAlbums";
+import CardCanciones from "../../components/CardCanciones/CardCanciones";
 
 class Favoritos extends Component {
     constructor(props){
         super(props)
         this.state= {
-            favoritos: []
+            track: [],
+            album: []
         }
     }
     componentDidMount(){
@@ -23,22 +24,46 @@ class Favoritos extends Component {
             Promise.all(
                 storageAArray.map(id => {
                     return(
-                        fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/${nombreStorage}/${id}`)
+                        fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/${nombreStorage}/${id}`)
                         .then(resp => resp.json())
                         .then(data => data )
                     )
                 })
             )
-            .then(data => console.log(data))
+            .then(data => nombreStorage === 'album' ? this.setState({album: data}) : this.setState({track: data}))
             .catch(err => console.log(err))
         }
     }
 
     render () {
+        console.log(this.state);
         return (
+            /*<>
+            <ContenedorAlbums info={this.props.favoritos}/>
+            <ContenedorCanciones info={this.props.favoritos}/>
+            </>*/
+
             <>
-            {/* <ContenedorAlbums info={this.props.favoritos}/>
-            <ContenedorCanciones info={this.props.favoritos}/> */}
+            <section>
+                <h2>Albums Favoritos</h2>
+                {
+                    this.state.album.length <= 0 ?
+                    <h1>Cargando..</h1> :
+                    this.state.album.map(album => 
+                        <article>
+                            <CardAlbums info={album} />
+                        </article>)
+                }
+                <h2>Canciones Favoritas</h2>
+                {
+                    this.state.track.length <= 0 ?
+                    <h1>Cargando..</h1> :
+                    this.state.track.map(track => 
+                        <article>
+                            <CardCanciones info={track} />
+                        </article>)
+                }
+            </section>
             </>
 
             // <div>

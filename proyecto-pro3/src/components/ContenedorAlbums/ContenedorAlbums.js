@@ -12,7 +12,7 @@ class ContenedorAlbums extends Component{
     }
    
     componentDidMount(){
-        fetch('https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/albums')
+        fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/albums')
         .then(res => res.json())
         .then(data => this.setState({albums: data.albums.data}))
         .catch(err => console.log(err))

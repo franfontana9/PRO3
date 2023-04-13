@@ -23,7 +23,7 @@ class CardCanciones extends Component {
                 <div>
                     <h3>{this.props.info.title}</h3>
                     <div>
-                    <BotonFavoritos id={this.props.info.id} categoria={CATEGORIAS.cancion}/>
+                    <BotonFavoritos esCancion={true} id={this.props.info.id} categoria={CATEGORIAS.cancion}/>
                     </div>
                     <div>
                         <h4>Desripcion</h4>

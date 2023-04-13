@@ -11,7 +11,8 @@ class BotonFavoritos extends Component {
     }
 
     componentDidMount(){
-        let storage = localStorage.getItem('favoritos')
+      let nombreStorage = this.props.esCancion ? 'track' : 'album'
+        let storage = localStorage.getItem(nombreStorage)
         let storageAArray = JSON.parse(storage)
     
         if(storageAArray !== null){
@@ -25,18 +26,19 @@ class BotonFavoritos extends Component {
       }
     
       anhadirFav(id){
-        let storage = localStorage.getItem('favoritos')
+        let nombreStorage = this.props.esCancion ? 'track' : 'album'
+        let storage = localStorage.getItem(nombreStorage)
     
         if(storage === null){
           let idEnArray = [id]
           let arrayAString = JSON.stringify(idEnArray)
-          localStorage.setItem('favoritos', arrayAString)
+          localStorage.setItem(nombreStorage, arrayAString)
     
         } else {
           let deStringAArray = JSON.parse(storage) 
           deStringAArray.push(id)
           let arrayAString = JSON.stringify(deStringAArray)
-          localStorage.setItem('favoritos', arrayAString)
+          localStorage.setItem(nombreStorage, arrayAString)
         }
     
         this.setState({
@@ -46,11 +48,12 @@ class BotonFavoritos extends Component {
       
     
       sacarFav(id){
-        let storage = localStorage.getItem('favoritos')
+        let nombreStorage = this.props.esCancion ? 'track' : 'album'
+        let storage = localStorage.getItem(nombreStorage)
         let storageAArray = JSON.parse(storage)
         let filtro = storageAArray.filter((elm)=> elm !== id)
         let filtroAString = JSON.stringify(filtro)
-        localStorage.setItem('favoritos', filtroAString)
+        localStorage.setItem(nombreStorage, filtroAString)
     
         this.setState({
           esFavorito: false
