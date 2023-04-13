@@ -29,7 +29,10 @@ class CardAlbums extends Component {
                         <h4>Desripcion</h4>
                         <button onClick={() => {this.setState({descripcionVisible:!this.state.descripcionVisible})}}>{this.state.descripcionVisible? '-': '+'}</button>   
                         {this.state.descripcionVisible && 
-                            <p>hola, aca va un poco de info </p>
+                            <div>
+                            <p>Artista: {this.props.info.artist.name}</p>
+                            <p>Posicion: {this.props.info.position}</p>
+                            </div>
                         }
                     </div>
                 </div>
