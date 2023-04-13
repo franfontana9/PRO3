@@ -10,39 +10,35 @@ class Favoritos extends Component {
         }
     }
     componentDidMount(){
-        let storage = localStorage.getItem('favoritos')
+        this.traerFavoritos('track')
+        this.traerFavoritos('album')
+        
+    }
+
+    traerFavoritos(nombreStorage){
+        let storage = localStorage.getItem(nombreStorage)
+
         if(storage !== null){
             let storageAArray = JSON.parse(storage)
             Promise.all(
                 storageAArray.map(id => {
                     return(
-                        fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/track/${id}`)
+                        fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/${nombreStorage}/${id}`)
                         .then(resp => resp.json())
-                        .then(dataCancion => dataCancion),
-
-                        fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/album/${id}`)
-                        .then(resp => resp.json())
-                        .then(dataAlbum => dataAlbum)
+                        .then(data => data )
                     )
                 })
             )
-            .then(dataCancion => this.setState({
-                favoritos: dataCancion.tracks.data.id
-            }))
-            .then(dataAlbum => this.setState({
-                favoritos: dataAlbum.albums.data.id
-            }))
+            .then(data => console.log(data))
             .catch(err => console.log(err))
-
-
         }
     }
 
     render () {
         return (
             <>
-            <ContenedorAlbums info={this.state.favoritos}/>
-            <ContenedorCanciones info={this.state.favoritos}/>
+            {/* <ContenedorAlbums info={this.props.favoritos}/>
+            <ContenedorCanciones info={this.props.favoritos}/> */}
             </>
 
             // <div>
