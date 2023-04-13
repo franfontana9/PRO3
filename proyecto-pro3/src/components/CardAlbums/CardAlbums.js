@@ -14,10 +14,11 @@ class CardAlbums extends Component {
     }
 
     render() {
-        console.table(this.props.info.albums)
+        console.log(this.props.info)
+
         return(
             <div>
-<               Link to={'/detalle/' + (this.props.info.id)}>
+<               Link to={`/detalle/${CATEGORIAS.album}/${this.props.info.id}`}>
                     <img src={this.props.info.cover_medium} alt="tapa de disco"/>
                 </Link>
                 <div>
@@ -29,7 +30,10 @@ class CardAlbums extends Component {
                         <h4>Desripcion</h4>
                         <button onClick={() => {this.setState({descripcionVisible:!this.state.descripcionVisible})}}>{this.state.descripcionVisible? '-': '+'}</button>   
                         {this.state.descripcionVisible && 
-                            <p>hola, aca va un poco de info </p>
+                            <div>
+                            <p>Artista: {this.props.info.artist.name}</p>
+                            <p>Posicion: {this.props.info.position}</p>
+                            </div>
                         }
                     </div>
                 </div>
