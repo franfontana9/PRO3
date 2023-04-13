@@ -1,66 +1,65 @@
 import React, { Component } from "react";
-import ContenedorAlbums from "../../components/ContenedorAlbums/ContenedorAlbums";
-import ContenedorCanciones from "../../components/ContenedorCanciones/ContenedorCanciones";
+import CardAlbums from "../../components/CardAlbums/CardAlbums";
+import CardCanciones from "../../components/CardCanciones/CardCanciones";
 
 class Favoritos extends Component {
     constructor(props){
         super(props)
         this.state= {
-            favoritos: []
+            track: [],
+            album: []
         }
     }
     componentDidMount(){
-        let storage = localStorage.getItem('favoritos')
+        this.traerFavoritos('track')
+        this.traerFavoritos('album')
+        
+    }
+
+    traerFavoritos(nombreStorage){
+        let storage = localStorage.getItem(nombreStorage)
+
         if(storage !== null){
             let storageAArray = JSON.parse(storage)
             Promise.all(
                 storageAArray.map(id => {
                     return(
-                        fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/track/${id}`)
+                        fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/${nombreStorage}/${id}`)
                         .then(resp => resp.json())
-                        .then(dataCancion => dataCancion),
-
-                        fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/album/${id}`)
-                        .then(resp => resp.json())
-                        .then(dataAlbum => dataAlbum)
+                        .then(data => data )
                     )
                 })
             )
-            .then(dataCancion => this.setState({
-                favoritos: dataCancion.tracks.data.id
-            }))
-            .then(dataAlbum => this.setState({
-                favoritos: dataAlbum.albums.data.id
-            }))
+            .then(data => nombreStorage === 'album' ? this.setState({album: data}) : this.setState({track: data}))
             .catch(err => console.log(err))
-
-
         }
     }
 
     render () {
+        console.log(this.state);
         return (
             <>
-            <ContenedorAlbums info={this.state.favoritos}/>
-            <ContenedorCanciones info={this.state.favoritos}/>
+            <section>
+                <h2>Albums Favoritos</h2>
+                {
+                    this.state.album.length <= 0 ?
+                    <h1>Cargando..</h1> :
+                    this.state.album.map(album => 
+                        <article>
+                            <CardAlbums info={album} />
+                        </article>)
+                }
+                <h2>Canciones Favoritas</h2>
+                {
+                    this.state.track.length <= 0 ?
+                    <h1>Cargando..</h1> :
+                    this.state.track.map(track => 
+                        <article>
+                            <CardCanciones info={track} />
+                        </article>)
+                }
+            </section>
             </>
-
-            // <div>
-            // {
-            //     <>
-            //     {
-            //         this.state.Cancionesfavoritas.map(cancion => <article>
-            //             <ContenedorCanciones info={this.state.favoritos} />
-            //             </article>
-            //         )}
-            //     {
-            //         this.state.Albumsfavoritas.map(albums => <article>
-            //             <ContenedorAlbums info={this.state.favoritos} />
-            //             </article>
-            //        )}
-            //     </>
-            // }
-            // </div>
         )
     }
 }

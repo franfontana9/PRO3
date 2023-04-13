@@ -24,7 +24,7 @@ class CardAlbums extends Component {
                 <div>
                     <h3>{this.props.info.title}</h3>
                     <div>
-                    <BotonFavoritos id={this.props.info.id} categoria={CATEGORIAS.albums}/>
+                    <BotonFavoritos esCancion={false} id={this.props.info.id} categoria={CATEGORIAS.albums}/>
                     </div>
                     <div>
                         <h4>Desripcion</h4>
