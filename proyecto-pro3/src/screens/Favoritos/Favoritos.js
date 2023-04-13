@@ -38,11 +38,6 @@ class Favoritos extends Component {
     render () {
         console.log(this.state);
         return (
-            /*<>
-            <ContenedorAlbums info={this.props.favoritos}/>
-            <ContenedorCanciones info={this.props.favoritos}/>
-            </>*/
-
             <>
             <section>
                 <h2>Albums Favoritos</h2>
@@ -65,23 +60,6 @@ class Favoritos extends Component {
                 }
             </section>
             </>
-
-            // <div>
-            // {
-            //     <>
-            //     {
-            //         this.state.Cancionesfavoritas.map(cancion => <article>
-            //             <ContenedorCanciones info={this.state.favoritos} />
-            //             </article>
-            //         )}
-            //     {
-            //         this.state.Albumsfavoritas.map(albums => <article>
-            //             <ContenedorAlbums info={this.state.favoritos} />
-            //             </article>
-            //        )}
-            //     </>
-            // }
-            // </div>
         )
     }
 }
