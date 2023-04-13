@@ -5,9 +5,9 @@ import ContenedorCanciones from "../../components/ContenedorCanciones/Contenedor
 class Favoritos extends Component {
     constructor(props){
         super(props)
-        this.setState({
+        this.state= {
             favoritos: []
-        })
+        }
     }
     componentDidMount(){
         let storage = localStorage.getItem('favoritos')
@@ -16,14 +16,21 @@ class Favoritos extends Component {
             Promise.all(
                 storageAArray.map(id => {
                     return(
-                        fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/${id}`)
+                        fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/track/${id}`)
                         .then(resp => resp.json())
-                        .then(data => data)
+                        .then(dataCancion => dataCancion),
+
+                        fetch(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/album/${id}`)
+                        .then(resp => resp.json())
+                        .then(dataAlbum => dataAlbum)
                     )
                 })
             )
-            .then(data => this.setState({
-                favoritos: data
+            .then(dataCancion => this.setState({
+                favoritos: dataCancion.tracks.data.id
+            }))
+            .then(dataAlbum => this.setState({
+                favoritos: dataAlbum.albums.data.id
             }))
             .catch(err => console.log(err))
 
@@ -34,10 +41,26 @@ class Favoritos extends Component {
     render () {
         return (
             <>
-                <h1>Favoritos ❤️</h1>
-                <ContenedorAlbums albums={this.state.favoritos} />
-                <ContenedorCanciones canciones={this.state.favoritos}/> 
+            <ContenedorAlbums info={this.state.favoritos}/>
+            <ContenedorCanciones info={this.state.favoritos}/>
             </>
+
+            // <div>
+            // {
+            //     <>
+            //     {
+            //         this.state.Cancionesfavoritas.map(cancion => <article>
+            //             <ContenedorCanciones info={this.state.favoritos} />
+            //             </article>
+            //         )}
+            //     {
+            //         this.state.Albumsfavoritas.map(albums => <article>
+            //             <ContenedorAlbums info={this.state.favoritos} />
+            //             </article>
+            //        )}
+            //     </>
+            // }
+            // </div>
         )
     }
 }
