@@ -11,11 +11,11 @@ const opciones = [
         path: '/favoritos'
     },
     {
-        nombre: 'Mostrar todas las canciones',
+        nombre: 'Canciones',
         path: '/canciones'
     },
     {
-        nombre: 'Mostrar todos los albums',
+        nombre: 'Albums',
         path: '/albums'
     },
 ]
