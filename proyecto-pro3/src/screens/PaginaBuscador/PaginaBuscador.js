@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import ContenedorAlbums from "../../components/ContenedorAlbums/ContenedorAlbums";
 import ContenedorCanciones from "../../components/ContenedorCanciones/ContenedorCanciones";
 import ResultadosBusqueda from "../../components/ResultadosBusqueda/ResultadosBusqueda";
-import './paginabuscador.css'
+
 
 class PaginaBuscador extends Component{
   constructor(props){
