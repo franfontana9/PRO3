@@ -2,6 +2,7 @@ import React, { Component }  from 'react';
 import { API_URL, CATEGORIAS } from '../../constants';
 import DetalleAlbum from './DetalleAlbum';
 import DetalleCancion from './DetalleCancion';
+import './detalle.css';
 
 class Detalle extends Component {
     constructor(props){
@@ -25,10 +26,10 @@ class Detalle extends Component {
         return (
             <>
             {this.state.info && 
-            <main>
+            <main  className="detalle"> 
                 {this.state.categoria === CATEGORIAS.album
-            ? <DetalleAlbum album={this.state.info} />
-            : <DetalleCancion cancion={this.state.info} />
+            ? <DetalleAlbum album={this.state.info} className="album-detail" />
+            : <DetalleCancion cancion={this.state.info} className="track-detail" />
                 }
             </main>
             

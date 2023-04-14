@@ -1,0 +1,14 @@
+
+
+/* Estilos para el contenedor principal */
+.detalle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    margin: 5px;
+  }
+  
+ 
+  
+  

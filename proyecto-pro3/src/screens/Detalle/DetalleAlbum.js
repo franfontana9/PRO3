@@ -1,11 +1,11 @@
 import React from "react"
 import BotonFavoritos from "../../components/Favoritos/BotonFavoritos"
 
-const DetalleAlbum = ({album}) => (
+  const DetalleAlbum = ({album}) => (
     <div>
         <header>
             <h1>{album.title}</h1>
-            <BotonFavoritos />
+            <BotonFavoritos/>
         </header>
         <img src={album.cover_medium} alt="tapa de disco"/>
         <p>Fecha de lanzamiento: {album.release_date}</p>
