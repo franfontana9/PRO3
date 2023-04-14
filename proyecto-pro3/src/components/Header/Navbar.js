@@ -10,6 +10,14 @@ const opciones = [
         nombre: 'Favoritos',
         path: '/favoritos'
     },
+    {
+        nombre: 'Mostrar todas las canciones',
+        path: '/canciones'
+    },
+    {
+        nombre: 'Mostrar todos los albums',
+        path: '/albums'
+    },
 ]
 
 function Navbar(){
