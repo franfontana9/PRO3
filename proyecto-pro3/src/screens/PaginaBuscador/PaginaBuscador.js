@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import ContenedorAlbums from "../../components/ContenedorAlbums/ContenedorAlbums";
 import ContenedorCanciones from "../../components/ContenedorCanciones/ContenedorCanciones";
 import ResultadosBusqueda from "../../components/ResultadosBusqueda/ResultadosBusqueda";
+import './paginabuscador.css'
 
 class PaginaBuscador extends Component{
   constructor(props){
@@ -35,8 +36,8 @@ class PaginaBuscador extends Component{
             actualizador={(data) => this.actualizadorDeEstado(data)}
             fuente = {this.state.backup} 
             />
-            <ContenedorAlbums albums={this.state.albums} />
-            <ContenedorCanciones canciones={this.state.canciones}/>
+            <ContenedorAlbums albums={this.state.albums} className="contenedor"/>
+            <ContenedorCanciones canciones={this.state.canciones} className="contenedor"/>
           </div>
         )
       }
