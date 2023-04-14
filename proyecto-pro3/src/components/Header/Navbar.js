@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import './header.css'
 const opciones = [
     {
         nombre: 'Home',
@@ -13,21 +14,17 @@ const opciones = [
 
 function Navbar(){
     return (
-        <nav>
+        <nav >
             <ul className="main-nav">
             { opciones.map((elm, index) => 
-                <li key={index}>
+                <li className="main-nav" key={index}>
                     <Link to={elm.path}>
                         {elm.nombre}
                     </Link>
                 </li>
             )}
             </ul>
-            <ul className="user">
-                <li>
-                    <img src=" " alt=""/>
-                </li>
-        </ul>
+            
         </nav>
     )
 }
