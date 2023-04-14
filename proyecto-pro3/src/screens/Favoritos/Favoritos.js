@@ -43,7 +43,7 @@ class Favoritos extends Component {
                 <h2 className="favoritos__title">Albums Favoritos</h2>
                 {
                     this.state.album.length <= 0 ?
-                    <h1>Cargando..</h1> :
+                    <img className="notFoundImg" src="../../img/loader.gif"></img> :
                     this.state.album.map(album => 
                         <article className="favoritos__article">
                             <CardAlbums info={album} />
@@ -52,7 +52,7 @@ class Favoritos extends Component {
                 <h2 className="favoritos__title">Canciones Favoritas</h2>
                 {
                     this.state.track.length <= 0 ?
-                    <h1>Cargando..</h1> :
+                    <img className="notFoundImg" src="../../img/loader.gif"></img> :
                     this.state.track.map(track => 
                         <article className="favoritos__article">
                             <CardCanciones info={track} />
