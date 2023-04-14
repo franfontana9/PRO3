@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CardAlbums from "../../components/CardAlbums/CardAlbums";
 import CardCanciones from "../../components/CardCanciones/CardCanciones";
-
+import "./favoritos.css";
 class Favoritos extends Component {
     constructor(props){
         super(props)
@@ -39,22 +39,22 @@ class Favoritos extends Component {
         console.log(this.state);
         return (
             <>
-            <section>
-                <h2>Albums Favoritos</h2>
+            <section className="favoritos">
+                <h2 className="favoritos__title">Albums Favoritos</h2>
                 {
                     this.state.album.length <= 0 ?
                     <h1>Cargando..</h1> :
                     this.state.album.map(album => 
-                        <article>
+                        <article className="favoritos__article">
                             <CardAlbums info={album} />
                         </article>)
                 }
-                <h2>Canciones Favoritas</h2>
+                <h2 className="favoritos__title">Canciones Favoritas</h2>
                 {
                     this.state.track.length <= 0 ?
                     <h1>Cargando..</h1> :
                     this.state.track.map(track => 
-                        <article>
+                        <article className="favoritos__article">
                             <CardCanciones info={track} />
                         </article>)
                 }
