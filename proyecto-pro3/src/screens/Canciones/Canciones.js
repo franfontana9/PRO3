@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import ContenedorCanciones from '../../components/ContenedorCanciones/ContenedorCanciones';
 
-import './mostrar.css'
-
- class canciones extends Component {
+ class Canciones extends Component {
   render() {
     return (
       <ContenedorCanciones/>
@@ -12,5 +10,5 @@ import './mostrar.css'
 }
 
 
-export default canciones
+export default Canciones
 

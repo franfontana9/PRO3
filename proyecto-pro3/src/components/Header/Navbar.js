@@ -16,7 +16,7 @@ const opciones = [
     },
     {
         nombre: 'Albums',
-        path: '/'
+        path: '/albums'
     },
 ]
 
