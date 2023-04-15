@@ -54,16 +54,7 @@ class ResultadosBusqueda extends Component {
           >
             Limpiar
           </button>
-          {/*}
-          <select
-            name="categoria"
-            onChange={this.handleOnChange}
-            className="category-select"
-          >
-            <option value={CATEGORIAS.album}>Album</option>
-            <option value={CATEGORIAS.cancion}>Cancion</option>
-          </select>
-          */}
+          
         </form>
 
         {this.state.resultadosBusqueda.length > 0 && this.state.consulta != "" && (

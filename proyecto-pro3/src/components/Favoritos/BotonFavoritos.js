@@ -1,7 +1,6 @@
 import React, { Component } from "react"; 
 import { Link } from 'react-router-dom'
 
-
 class BotonFavoritos extends Component {
     constructor(props){
         super(props)
@@ -76,18 +75,6 @@ class BotonFavoritos extends Component {
         </div>
         )
       }
-
-//     render(){
-//         return(
-//         <button onClick={() => {this.setState({estaEnFavoritos:!this.state.estaEnFavoritos})}}>
-//                             {this.state.estaEnFavoritos?
-//                                 <i style={{color:'crimson'}} class="fa-solid fa-heart"></i>
-//                                 :
-//                                 <i class="fa-regular fa-heart"></i>
-//                         }
-//         </button>
-//         )
-//     }
 
 }
 export default BotonFavoritos

@@ -30,7 +30,7 @@ class Favoritos extends Component {
                     )
                 })
             )
-            .then(data => nombreStorage === 'album' ? this.setState({album: data}) : this.setState({track: data}))
+            .then(data => nombreStorage === 'track' ? this.setState({album: data}) : this.setState({track: data}))
             .catch(err => console.log(err))
         }
     }
