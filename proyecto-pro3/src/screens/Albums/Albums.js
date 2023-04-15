@@ -10,7 +10,7 @@ import './mostrar.css'
         <main>
           <section className='mostrar'>
               <article className='article'> 
-              <h2 className='title'>TOP ALBUMS</h2>
+              <h2 className='title'>TODOS LOS ALBUMS</h2>
               <ContenedorAlbums/>
               </article> 
           </section>
